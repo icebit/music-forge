@@ -1,0 +1,32 @@
+   0.064753458s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint: stale: changed "/Users/samharrison/Documents/GitHub/music-forge/src/main.rs"
+   0.064774750s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint:           (vs) "/Users/samharrison/Documents/GitHub/music-forge/target/debug/.fingerprint/music-forge-d9cb0ac3abbbddb9/dep-bin-music-forge"
+   0.064778875s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1772566352, nanos: 919095152 } < FileTime { seconds: 1772566369, nanos: 818417125 }
+   0.065348250s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint: fingerprint dirty for music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge)/Check { test: false }/TargetInner { name: "music-forge", doc: true, ..: with_path("/Users/samharrison/Documents/GitHub/music-forge/src/main.rs", Edition2021) }
+   0.065502500s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/samharrison/Documents/GitHub/music-forge/target/debug/.fingerprint/music-forge-d9cb0ac3abbbddb9/dep-bin-music-forge", reference_mtime: FileTime { seconds: 1772566352, nanos: 919095152 }, stale: "/Users/samharrison/Documents/GitHub/music-forge/src/main.rs", stale_mtime: FileTime { seconds: 1772566369, nanos: 818417125 } }))
+   0.081112250s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint: fingerprint error for music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge)/Check { test: true }/TargetInner { name: "music-forge", doc: true, ..: with_path("/Users/samharrison/Documents/GitHub/music-forge/src/main.rs", Edition2021) }
+   0.081126541s  INFO prepare_target{force=false package_id=music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge) target="music-forge"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/samharrison/Documents/GitHub/music-forge/target/debug/.fingerprint/music-forge-220759a136f8f2c6/test-bin-music-forge`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+    Checking music-forge v0.1.0 (/Users/samharrison/Documents/GitHub/music-forge)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.55s

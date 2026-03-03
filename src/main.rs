@@ -18,6 +18,12 @@ enum Commands {
     Init {
         name: String,
     },
+    /// Adopt an existing project into music-forge (run from inside the project dir)
+    Adopt {
+        /// Adopt all projects in the configured projects directory
+        #[arg(long)]
+        all: bool,
+    },
     /// Create a new seed (quick idea)
     Seed {
         name: String,
@@ -46,6 +52,10 @@ enum Commands {
         #[arg(long)]
         to: Option<String>,
     },
+    /// Show the git history of the current project as a timeline
+    Timeline,
+    /// Show a summary of all projects
+    Dashboard,
 }
 
 fn main() -> Result<()> {
@@ -54,11 +64,20 @@ fn main() -> Result<()> {
 
     match cli.command {
         Commands::Init { name } => commands::init::run(&config, &name),
+        Commands::Adopt { all } => {
+            if all {
+                commands::adopt::run_all(&config)
+            } else {
+                commands::adopt::run(&config)
+            }
+        }
         Commands::Seed { name } => commands::seed::run(&config, &name),
         Commands::Promote { seed_path } => commands::promote::run(&config, &seed_path),
         Commands::Log { message } => commands::log::run(&message),
         Commands::Watch { dir, debounce } => commands::watch::run(&config, dir.as_deref(), debounce),
         Commands::Status { status } => commands::status::run(&status),
         Commands::Ingest { files, to } => commands::ingest::run(&files, to.as_deref()),
+        Commands::Timeline => commands::timeline::run(),
+        Commands::Dashboard => commands::dashboard::run(&config),
     }
 }
