@@ -5,6 +5,7 @@ pub mod ingest;
 pub mod log;
 pub mod promote;
 pub mod seed;
+pub mod snapshot;
 pub mod status;
 pub mod timeline;
 pub mod watch;

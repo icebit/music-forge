@@ -1,5 +1,6 @@
 mod config;
 mod git;
+mod reaper;
 mod commands;
 
 use anyhow::Result;
@@ -35,6 +36,13 @@ enum Commands {
     /// Commit current changes with a message
     Log {
         message: String,
+        /// Render in Reaper and commit as a snapshot
+        #[arg(long)]
+        snapshot: bool,
+    },
+    /// Render in Reaper and commit as a snapshot
+    Snapshot {
+        message: Option<String>,
     },
     /// Watch a directory and auto-commit changes
     Watch {
@@ -73,7 +81,8 @@ fn main() -> Result<()> {
         }
         Commands::Seed { name } => commands::seed::run(&config, &name),
         Commands::Promote { seed_path } => commands::promote::run(&config, &seed_path),
-        Commands::Log { message } => commands::log::run(&message),
+        Commands::Log { message, snapshot } => commands::log::run(&config, &message, snapshot),
+        Commands::Snapshot { message } => commands::snapshot::run(&config, message.as_deref()),
         Commands::Watch { dir, debounce } => commands::watch::run(&config, dir.as_deref(), debounce),
         Commands::Status { status } => commands::status::run(&status),
         Commands::Ingest { files, to } => commands::ingest::run(&files, to.as_deref()),
