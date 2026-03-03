@@ -1,0 +1,10 @@
+/Users/samharrison/Documents/GitHub/music-forge/target/debug/deps/colored-217f265c5324635c.d: /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/lib.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/color.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/control.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/error.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/style.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/customcolors.rs
+
+/Users/samharrison/Documents/GitHub/music-forge/target/debug/deps/libcolored-217f265c5324635c.rmeta: /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/lib.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/color.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/control.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/error.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/style.rs /Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/customcolors.rs
+
+/Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/lib.rs:
+/Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/color.rs:
+/Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/control.rs:
+/Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/error.rs:
+/Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/style.rs:
+/Users/samharrison/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/colored-2.2.0/src/customcolors.rs:
