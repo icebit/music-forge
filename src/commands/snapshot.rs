@@ -1,16 +1,21 @@
 use crate::config::Config;
 use crate::git;
+use crate::projects;
 use crate::reaper;
 use anyhow::{bail, Result};
 use colored::Colorize;
 use std::env;
 use std::path::Path;
 
-pub fn run(config: &Config, message: Option<&str>) -> Result<()> {
-    let cwd = env::current_dir()?;
-    let repo = git::open_repo(&cwd)?;
+pub fn run(config: &Config, project: Option<&str>, message: Option<&str>) -> Result<()> {
+    let dir = match project {
+        Some(name) => projects::find(config, name)?,
+        None => env::current_dir()?,
+    };
 
-    render_if_available(config, &cwd)?;
+    let repo = git::open_repo(&dir)?;
+
+    render_if_available(config, &dir)?;
 
     if !git::has_changes(&repo)? {
         bail!("Nothing to snapshot (working tree clean)");

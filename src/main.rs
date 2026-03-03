@@ -1,5 +1,6 @@
 mod config;
 mod git;
+mod projects;
 mod reaper;
 mod commands;
 
@@ -42,6 +43,10 @@ enum Commands {
     },
     /// Render in Reaper and commit as a snapshot
     Snapshot {
+        /// Project name (partial match OK); defaults to current directory
+        project: Option<String>,
+        /// Commit message label
+        #[arg(short, long)]
         message: Option<String>,
     },
     /// Watch a directory and auto-commit changes
@@ -62,6 +67,10 @@ enum Commands {
     },
     /// Show the git history of the current project as a timeline
     Timeline,
+    /// Open a project or seed by name (partial match supported)
+    Open {
+        name: String,
+    },
     /// Show a summary of all projects
     Dashboard,
 }
@@ -82,10 +91,11 @@ fn main() -> Result<()> {
         Commands::Seed { name } => commands::seed::run(&config, &name),
         Commands::Promote { seed_path } => commands::promote::run(&config, &seed_path),
         Commands::Log { message, snapshot } => commands::log::run(&config, &message, snapshot),
-        Commands::Snapshot { message } => commands::snapshot::run(&config, message.as_deref()),
+        Commands::Snapshot { project, message } => commands::snapshot::run(&config, project.as_deref(), message.as_deref()),
         Commands::Watch { dir, debounce } => commands::watch::run(&config, dir.as_deref(), debounce),
         Commands::Status { status } => commands::status::run(&status),
         Commands::Ingest { files, to } => commands::ingest::run(&files, to.as_deref()),
+        Commands::Open { name } => commands::open::run(&config, &name),
         Commands::Timeline => commands::timeline::run(),
         Commands::Dashboard => commands::dashboard::run(&config),
     }

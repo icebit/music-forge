@@ -3,6 +3,7 @@ pub mod dashboard;
 pub mod init;
 pub mod ingest;
 pub mod log;
+pub mod open;
 pub mod promote;
 pub mod seed;
 pub mod snapshot;
